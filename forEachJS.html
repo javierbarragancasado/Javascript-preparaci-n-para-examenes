@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+
+const personas = [
+  { nombre: "Sofía", edad: 25 },
+  { nombre: "Pedro", edad: 30 },
+  { nombre: "Lucía", edad: 20 }
+];
+
+personas.forEach(({nombre,edad})=>{
+    console.log(`Hola ${nombre}, tienes ${edad} años.`);
+});
+
+const temperaturas = [
+  { ciudad: "León", grados: 28 },
+  { ciudad: "Madrid", grados: 36 },
+  { ciudad: "Barcelona", grados: 22 }
+];
+
+temperaturas.forEach(({ciudad,grados})=>{
+    
+    grados>30? console.log(`Hace calor en ${ciudad} .`): console.log(`Hace fresco en ${ciudad} .`);
+    }
+);
+
+const productos = [
+  { nombre: "Zapatillas", stock: 5 },
+  { nombre: "Pantalones", stock: 0 },
+  { nombre: "Camisetas", stock: 12 }
+];
+
+productos.forEach(({nombre, stock}) => {
+  stock > 0
+    ? console.log(`${nombre} - En stock (${stock} unidades)`)
+    : console.log(`${nombre} - AGOTADO`);
+});
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
