@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Retos operador ternario</title>
+  <script>
+    // 🧪 RETO 1 – Edad
+    let edad = 20;
+    console.log(edad >= 18 ? "Eres mayor de edad" : "Eres menor de edad");
+
+    // 🧪 RETO 2 – Puntos y nivel
+    let puntos = 120;
+    let nivel = puntos >= 100 ? "¡Nivel experto!" : "Nivel básico";
+    console.log(nivel);
+
+    // 🧪 RETO 3 – Jugador con desestructuración y ternario
+    const jugador = {
+      nombre: "Javi",
+      energia: 28
+    };
+
+    // Opción 1: sin desestructurar
+    console.log(`${jugador.nombre} ${jugador.energia > 30 ? "puede luchar" : "necesita descansar"}`);
+
+    // Opción 2: desestructurando
+    const { nombre, energia } = jugador;
+    console.log(`${nombre} ${energia > 30 ? "puede luchar" : "necesita descansar"}`);
+  </script>
+</head>
+<body>
+</body>
+</html>
