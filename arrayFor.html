@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+
+const aventureros = [
+  { nombre: "Aria", puntos: 92 },
+  { nombre: "Borin", puntos: 67 },
+  { nombre: "Celeste", puntos: 45 },
+  { nombre: "Daren", puntos: 81 },
+  { nombre: "Einar", puntos: 30 }
+];
+
+
+
+for(i=0;i<aventureros.length;i++){
+ const personajes=aventureros[i];
+
+ console.log(`Nombre del personaje:${personajes.nombre}  puntos del personaje: ${personajes.puntos}  `);
+   
+  if(personajes.puntos>=80){
+    console.log(`- Excelente -`);
+}else if(personajes.puntos >= 50 &&  personajes.puntos <  80){
+    console.log(`- Aceptable-`);
+}else{
+  console.log(`- Necesita mejorar-`);
+}
+}
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
