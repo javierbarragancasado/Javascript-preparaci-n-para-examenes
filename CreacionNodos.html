@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script >
+        crearParrafo=() => {
+        let parrafo=document.createElement("p");
+        document.body.appendChild(parrafo);
+        let textoNuevo = document.createTextNode("Hola, soy un párrafo nuevo");
+        parrafo.appendChild(textoNuevo);
+        }
+    </script>
+</head>
+<body>
+    <button onclick="crearParrafo()">Crear un párrafo</button>
+</body>
+</html>
