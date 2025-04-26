@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cambiar imágenes</title>
+    <script>
+
+        cambiarImagen=()=>{
+            let imagen=document.getElementById("imagenCambiante");
+            if(imagen.src.includes("dunas.jpg")){
+                imagen.src="aurora.jpg"; // Cambia la imagen a aurora
+            }else{
+                imagen.src="dunas.jpg"; // Cambia la imagen a dunas
+            }
+            
+        }
+    </script>
+</head>
+<body>
+    <img src="aurora.jpg" alt="Imagen de aurora boreal" id="imagenCambiante" style="display: block; margin: 0 auto; width: 900px; height: auto;">
+    <button onclick="cambiarImagen()" id="botonCambio" style="display: block; margin: 20px auto;"> Cambiar Imagen </button>
+</body>
+</html>

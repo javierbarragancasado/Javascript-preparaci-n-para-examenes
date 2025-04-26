@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+
+        let vida=100; //Declaro la variable vida y le asigno el valor 100
+        let energia=50; //Declaro la variable energia y le asigno el valor 50
+        energia+=20; //Aumento la energia en 20
+        vida-=20; //Disminuyo la vida en 30
+        console.log(`Hemos comido y la energia ha aumento a ${energia}`); //Muestra el valor de energia por consola
+        if(vida<50){ //Si la vida es menor a 50
+            console.log(`Necesitas curarte la vida está en ${vida}`); //Muestra el mensaje por consola
+        }
+        if(energia>30 && vida>70){ //Si la energia es mayor a 30 y la vida es mayor a 70
+            console.log(`Puedes atacar, la energía está en ${energia} y la vida en ${vida}`); //Muestra el mensaje por consola
+        }
+        else { //Si no se cumple la condición anterior
+            console.log(`Descansa un poco, la energía está en ${energia} y la vida en ${vida}`); //Muestra el mensaje por consola
+        }
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

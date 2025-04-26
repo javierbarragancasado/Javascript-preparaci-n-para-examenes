@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Título que se va a cambiar</title>
+    <script>
+
+cambiarTitulo = () => {
+    
+       
+        
+
+            let titulo=document.title; // Accedemos al título de la página
+            let boton=document.getElementById("cambiaTitulo"); // Accedemos al botón
+
+            if(titulo==="Título cambiado desde Javascript"){
+                document.title="Título que se va a cambiar"; // Cambiamos el título de la página
+                boton.innerText="Cambiar título de la página"; // Cambiamos el texto del botón
+        }else{
+                document.title="Título cambiado desde Javascript"; // Cambiamos el título de la página
+                boton.innerText="Volver al título anterior"; // Cambiamos el texto del botón
+            }
+        }
+    </script>
+</head>
+<body>
+    <button id="cambiaTitulo" onclick="cambiarTitulo()">Cambiar título de la página</button>
+</body>
+</html>

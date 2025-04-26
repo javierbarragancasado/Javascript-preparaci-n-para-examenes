@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+
+     function ocultarMostrar() {
+    let parrafo = document.getElementById("textoParrafo");
+    let boton= document.getElementById("botonCambio");
+    
+    if (parrafo.style.display === "none") {
+        parrafo.style.display = "block"; 
+        boton.innerText="Ocultar texto";// Mostrar el párrafo
+    } else {
+        parrafo.style.display = "none";  // Ocultar el párrafo
+        boton.innerText="Mostrar Texto";// Mostrar el párrafo
+    }
+}
+    </script>
+</head>
+<body>
+    <p id="textoParrafo">Este es un párrafo que quiero poder ocultar o mostrar.</p>
+       <button id="botonCambio" onclick="ocultarMostrar()">Ocultar texto</button>
+</body>
+</html>

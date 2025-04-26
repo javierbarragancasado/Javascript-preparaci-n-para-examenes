@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mis Juegos de Mesa Favoritos</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      margin: 0;
+      padding: 0;
+    }
+    section {
+      padding: 40px;
+      min-height: 100vh; /* Cada sección ocupa mínimo toda la pantalla */
+      border-bottom: 1px solid #ccc;
+    }
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background-color: #eee;
+      padding: 10px;
+      z-index: 10;
+    }
+    nav ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+    }
+    nav ul li {
+      margin: 0 15px;
+    }
+    nav ul li a {
+      text-decoration: none;
+      font-weight: bold;
+      color: black;
+    }
+    nav ul li a:hover {
+      color: blue;
+    }
+    h1 {
+      margin-top: 70px; /* Para no quedar tapado por el nav fijo */
+      text-align: center;
+    }
+  </style>
+  <script src="RetoLocationHash.js"></script>
+</head>
+<body onload="detectarHash()">
+
+  <nav>
+    <ul>
+      <li><a href="#trickerion">Trickerion</a></li>
+      <li><a href="#anachrony">Anachrony</a></li>
+      <li><a href="#castillos">Castillos de Borgoña</a></li>
+      <li><a href="#daitoshi">Daitoshi</a></li>
+      <li><a href="#inventions">Inventions</a></li>
+    </ul>
+  </nav>
+
+  <h1>Juegos de Mesa Épicos</h1>
+
+  <section id="trickerion">
+    <h2>Trickerion</h2>
+    <p>Trickerion es un juego de colocación de trabajadores ambientado en un mundo de magia victoriana donde los jugadores interpretan a ilusionistas rivales. (...) Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae urna sit amet sapien vestibulum malesuada. (...) (mucho más texto)</p>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla porttitor eros ac nisl lacinia, eget ultricies nunc consequat. Vivamus fermentum.</p>
+    <p>Aliquam erat volutpat. Suspendisse potenti. Vivamus id magna a erat tincidunt vulputate ut sed risus.</p>
+  </section>
+
+  <section id="anachrony">
+    <h2>Anachrony</h2>
+    <p>Anachrony es un eurogame de colocación de trabajadores con mecánicas de viajes en el tiempo. (...) Curabitur ac sapien vel lacus lacinia posuere. Sed feugiat, turpis ut porttitor volutpat, est mi suscipit ligula, ut vehicula massa elit a arcu. (...) (más texto)</p>
+    <p>Praesent eget metus quis lorem ullamcorper tincidunt. Integer in eros et orci tincidunt vulputate nec ut augue.</p>
+    <p>Fusce nec commodo libero. Sed scelerisque id justo a sollicitudin. Donec feugiat ipsum at leo dignissim, eget pretium lorem commodo.</p>
+  </section>
+
+  <section id="castillos">
+    <h2>Castillos de Borgoña</h2>
+    <p>Castillos de Borgoña es un clásico juego de gestión de dados donde construyes tu territorio. (...) Morbi tristique sapien non velit dignissim tempor. Suspendisse potenti. Sed nec malesuada augue. Quisque dapibus pulvinar metus. (...) (más texto)</p>
+    <p>Vestibulum vehicula justo a velit laoreet, non lobortis nunc tempor. Pellentesque habitant morbi tristique senectus et netus et malesuada fames.</p>
+    <p>Phasellus sed magna justo. Etiam a sodales sapien, ut facilisis erat. Integer luctus turpis id nisl congue viverra.</p>
+  </section>
+
+  <section id="daitoshi">
+    <h2>Daitoshi</h2>
+    <p>Daitoshi te lleva a una ciudad japonesa futurista donde construyes infraestructura para prosperar. (...) Cras vitae quam eget felis varius facilisis. In eget ultrices enim, ac aliquam nunc. Curabitur suscipit turpis eget erat tincidunt gravida. (...) (más texto)</p>
+    <p>Fusce ornare, metus nec vehicula ullamcorper, purus felis viverra libero, a iaculis justo enim at turpis.</p>
+    <p>Ut in erat eget orci posuere aliquam. Sed euismod facilisis erat, sed cursus ipsum imperdiet sit amet.</p>
+  </section>
+
+  <section id="inventions">
+    <h2>Inventions</h2>
+    <p>Inventions es el nuevo eurogame de Vital Lacerda donde avanzas inventos a través de las eras. (...) Duis ut velit non arcu fermentum egestas. Aenean nec ullamcorper sapien. Nam id elit vitae lectus dapibus bibendum. (...) (más texto)</p>
+    <p>Quisque accumsan ipsum at nibh finibus, sed blandit elit bibendum. Mauris tempor lectus in libero posuere, sed vulputate nisi ullamcorper.</p>
+    <p>Suspendisse id sem sed magna hendrerit dictum sed sed sem. Fusce dignissim, nunc non volutpat laoreet, sapien metus condimentum erat.</p>
+  </section>
+
+</body>
+</html>

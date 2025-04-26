@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+
+        function saludar(nombre){//Forma tradicional de declarar una función.
+            return `Hola ${nombre}`;
+        }
+         const saludarModerno = nombre=> `Hola ${nombre}`; //Forma de declarar una funcion con arrow function o funcion flecha. (Moderna);
+
+         console.log(saludar("Javier"));
+         console.log(saludarModerno("Javier a lo moderno"));
+
+         function calcularCuadrado(numero) { //Forma tradicional de declarar una función.
+            let cuadrado= numero*numero;
+            return cuadrado;
+         }
+
+         const calcularCuadradoModerno= numero=> {//Forma de declarar una funcion con arrow function o funcion flecha. (Moderna);
+            let cuadrado= numero*numero; 
+            return cuadrado
+         }
+            console.log(calcularCuadrado(5));
+            console.log(`${calcularCuadradoModerno(5)} a lo moderno`); 
+
+        function sumar(a,b){ //Forma tradicional de declarar una función.
+            return a+b;
+        }
+
+        const sumarModerno= (a,b) => a+b; //Forma de declarar una funcion con arrow function o funcion flecha. (Moderna);
+         
+        console.log(sumar(5,10));
+        console.log(`${sumarModerno(5,10)} a lo moderno`);
+
+        function calcularAreaRectangulo(base,altura){ //Forma tradicional de declarar una función.
+            area=base*altura;
+            return area;
+        }
+
+        const calcularAareaRectangulo=(base,altura)=>{ //Forma de declarar una funcion con arrow function o funcion flecha. (Moderna);
+            area=base*altura;
+            return area;
+        }
+        console.log(calcularAreaRectangulo(5,10));
+        console.log(`${calcularAareaRectangulo(5,10)} a lo moderno`);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>    
+
+const personaje = {
+  nombre: "Link",
+  juego: "Zelda",
+  nivel: 42
+};
+
+const {nombre,juego,nivel}=personaje;
+console.log(`El personaje ${nombre} tiene el nivel ${nivel}`);
+
+const pociones = ["Salud", "Mana", "Resistencia"];
+
+const[pocion1,,pocion3]=pociones;
+console.log(`Tienes pociones de ${pocion1} y ${pocion3}`);
+
+const libro = {
+  titulo: "El nombre del viento",
+  autor: "Patrick Rothfuss",
+  paginas: 662
+};
+
+const {titulo:t,autor: a,paginas: p}=libro;
+
+console.log(`El libro ${t} tiene ${p} páginas y fue escrito por ${a}`);
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
