@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+
+      let alumnos = ["Laura", "Pedro", "Sofía", "Tomás"];
+      let notas = [8.5, 7]; // solo dos notas disponibles
+
+
+      alumnos.forEach((alumno, indice) => {
+    if (notas[indice] !== undefined) {
+        console.log(`La nota del alumno ${alumno} es ${notas[indice]}`);
+    } else {
+        console.log(`El alumno ${alumno} no tiene nota`);
+    }
+});
+    
+      
+      for(i=0;i<alumnos.length;i++){
+        if(notas[i]!==undefined){
+            console.log(`La nota del alumno ${alumnos[i]} es ${notas[i]}`);
+        }else {
+            console.log(`El alumno ${alumnos[i]} no tiene nota`);
+        }
+      }
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
