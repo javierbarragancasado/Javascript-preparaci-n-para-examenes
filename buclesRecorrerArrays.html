@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bucles para recorrer arrays.</title>
+<script>
+
+let frutas = ["manzana", "plátano", "pera"];
+
+//Primera forma de recorrer el array, con un bucle for.
+
+for(let i=0; i<frutas.length;i++){
+    console.log(`Fruta en posición ${i}: ${frutas[i]}`);
+}
+
+//Segunda forma de recorrer el array, con un bucle for of.
+for(let fruta of frutas){//fruta es el nombre de la variable que contiene el valor de cada elemento del array que se llama frutas.
+    console.log(`Fruta: ${fruta}`); 
+}
+
+//Tercera forma de recorrer el array, con un bucle for in.
+for(let i in frutas){//i es el nombre de la variable que contiene el índice de cada elemento del array que se llama frutas.
+    console.log(`Fruta en posición ${i}: ${frutas[i]}`);
+}
+
+//Cuarta forma de recorrer el array, con un bucle forEach.
+frutas.forEach(fruta =>{//fruta es el nombre de la variable que contiene el valor de cada elemento del array que se llama frutas.
+    console.log(`Fruta: ${fruta}`);
+});
+
+</script>
+</head>
+<body>
+    
+</body>
+</html>

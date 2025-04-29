@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arrays, métodos básicos</title>
+    <script>
+
+        let tareas=[];
+        tareas.push("Estudiar JavaScript");
+        tareas.push("Hacer ejercicio");
+        tareas.push("Preparar la comida");
+        tareas.unshift("Levantarme temprano");
+        tareas.unshift("Desayunar");
+        tareas.shift();
+        tareas.shift();
+        tareas.pop();
+        tareas.splice(2,0,"Leer un libro", "Limpiar la casa");
+
+       
+        tareas.forEach(tarea=>
+            console.log(tarea)
+        );
+
+
+
+    </script>
+<body>
+    
+</body>
+</html>
