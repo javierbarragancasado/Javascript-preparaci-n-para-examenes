@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Objeto con método: función flecha vs function</title>
+  <script>
+    // ✅ OBJETO CON MÉTODO DEFINIDO CON FUNCIÓN FLECHA
+    let libro1 = {
+      titulo: "El Quijote",
+      autor: "Miguel de Cervantes",
+      anio: 1605,
+
+      // ❗ Esta función flecha NO tiene su propio this
+      // Por eso NO deberías usar `this.titulo` dentro
+      // Aquí usamos `libro1.titulo` directamente, así que FUNCIONA
+      mostrarInfo: () => {
+        console.log(`(FLECHA) El libro ${libro1.titulo} fue escrito por ${libro1.autor} en el año ${libro1.anio}.`);
+      }
+    };
+
+    libro1.mostrarInfo(); // ✅ Funciona porque usamos libro1.propiedad directamente
+
+
+    // ✅ OBJETO CON MÉTODO USANDO FUNCIÓN NORMAL (function)
+    let libro2 = {
+      titulo: "1984",
+      autor: "George Orwell",
+      anio: 1949,
+
+      // ✅ Esta sí es una función normal → sí crea su propio `this`
+      // Por tanto, podemos usar this.titulo, this.autor, this.anio sin problema
+      mostrarInfo: function () {
+        console.log(`(FUNCTION) El libro '${this.titulo}' fue escrito por ${this.autor} en el año ${this.anio}.`);
+      }
+    };
+
+    libro2.mostrarInfo(); // ✅ Funciona y es la forma RECOMENDADA para métodos
+
+    
+    // ❌ ¿Qué pasa si usáramos `this` en una función flecha?
+    let libro3 = {
+      titulo: "La Odisea",
+      autor: "Homero",
+      anio: -800,
+
+      // ❌ Función flecha usada incorrectamente con `this`
+      mostrarInfo: () => {
+        console.log(`(MAL USO) El libro '${this.titulo}' fue escrito por ${this.autor} en el año ${this.anio}.`);
+      }
+    };
+
+    libro3.mostrarInfo(); // ❌ Resultado: 'undefined' en todas las propiedades
+
+    /*
+      ✅ CONCLUSIÓN:
+      - Las funciones flecha (=>) NO deben usarse para métodos si necesitas `this`.
+      - Usa funciones normales (function() {}) dentro de objetos cuando trabajes con `this`.
+      - Si no usas `this`, y accedes directamente a propiedades por nombre del objeto, puedes usar flecha.
+    */
+  </script>
+</head>
+<body>
+</body>
+</html>
