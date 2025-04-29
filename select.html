@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        imprimeValores=()=>{
+        let selector=document.getElementById("ciudad");
+        let valor=selector.value;//Obtener el valor seleccionado. 
+        let texto = selector.options[selector.selectedIndex].text;
+        if(valor==="valor-igual"){
+            alert("Como te da igual la ciudad, para León que te vas");
+        }
+        console.log(valor); //leon
+        console.log(texto); //León
+    }
+
+    </script>
+</head>
+<body>
+
+    <!-- mejor poner el onchange ahí, que no onclick en todos los option por temas 
+     de que puede no funcionar bien en todos los navegadores. -->
+    <select id="ciudad" name="ciudad" onchange="imprimeValores()"> 
+        <option value="valor-leon" >León</option>
+        <option value="valor-madrid" >Madrid</option>
+        <option value="valor-barcelona" >Barcelona</option>
+        <option value="valor-igual"></option>Me da igual la ciudad</option>
+      </select>
+    
+</body>
+</html>
