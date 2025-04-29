@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Extraer cosas de formulario</title>
+    <script>
+
+        mostrarInfo =() =>{
+            
+            let nombre= document.getElementById("nombreF").value;
+            let apellido= document.getElementById("apellidoF").value;
+            let edad= document.getElementById("edadF").value;
+            let sexo= document.getElementById("sexoF").value;
+            let telefono= document.getElementById("telefonoF").value;
+            let info=(`Hola, mi nombre es ${nombre} ${apellido}, tengo ${edad} años, soy ${sexo} y mi número de teléfono es ${telefono}`);	
+            let parrafo= document.createElement("p");
+            document.body.appendChild(parrafo);
+            let nodo= document.createTextNode(info);
+            parrafo.appendChild(nodo);
+        }
+    </script>
+</head>
+<body>
+    <form action="" method="get" id="formularioPrueba">
+        <label for="Nombre">Nombre: </label><input type="text" name="" id="nombreF"><br>
+        <label for="Apellido">Apellido: </label><input type="text" name="" id="apellidoF"><br>
+        <label for="Edad">Edad: </label><input type="text" name="" id="edadF"><br>
+        <label for="Sexo">Sexo: </label><input type="text" name="" id="sexoF"><br>
+        <label for="Telefono">Teléfono: </label><input type="text" name="" id="telefonoF"><br>
+    <input  onclick="mostrarInfo()" type="button" value="¡Todo en un párrafo!">
+    </form>
+</body>
+</html>
