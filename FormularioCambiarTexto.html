@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        mostrarParrafo=()=>{
+            textoRecogido=document.getElementById("textoF").value;
+            let parrafo= document.createElement("p");
+            document.body.appendChild(parrafo);
+            let textoParrafo= document.createTextNode(`La ciudad en la que resides actualmente es ${textoRecogido}`);
+            parrafo.appendChild(textoParrafo);
+        }
+
+        leonCiudad=()=>{
+            let valorLeon=document.getElementById("textoF");
+            valorLeon.value="¡León!";
+        }
+
+
+        
+
+    </script>
+</head>
+<body>
+    <form action="" method="get">
+        <label for="Ciudad actual"> Ciudad actual: </label><input type="text" name="" id="textoF" placeholder="Introduce la ciudad dónde resides actualmente"><br>
+        <input type="button" value="Mostrar párrafo" onclick="mostrarParrafo()">
+        <input type="button" value="¡León!" onclick="leonCiudad()">
+
+    </form>
+</body>
+</html>
