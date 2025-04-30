@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Primer Evento</title>
+    
+</head>
+<body>
+   
+    <p id="parrafo"></p>
+    <button id="boton">¡Haz click aquí!</button>
+
+    <script>
+
+        let boton=document.getElementById("boton");
+        boton.addEventListener("click",function(){
+            alert("¡Hola! Has hecho click en el botón y ahora aparecerá un párrafo.");
+            parrafo=document.getElementById("parrafo");
+            parrafo.textContent="¡Hola! Has hecho click en el botón y aquí está el turbopárrafo prometido haha.";
+            
+            
+        });
+
+    </script>
+</body>
+</html>
