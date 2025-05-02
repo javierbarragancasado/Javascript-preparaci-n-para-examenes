@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Práctica DOM</title>
+</head>
+<body>
+  <h2>Zona de pruebas</h2>
+
+  <div id="zona"></div>
+  <button id="botonAppendChild">¡Añade un nuevo párrafo con appendChild()!</button>
+  <br><br>
+  <button id="botonAppend">¡Añade un nuevo párrafo con Append()!</button>
+
+  <script>
+    botonAppendChild.addEventListener("click",()=>{
+        let parrafoNuevo=document.createElement("p");
+    parrafoNuevo.textContent="Hola soy un párrafo nuevo";
+    document.getElementById("zona").appendChild(parrafoNuevo);
+    });
+ 
+    botonAppend.addEventListener("click",()=>{
+        let p1=document.createElement("p");
+        let p2=document.createElement("p");
+        p1.textContent=("Párrafo 1 con append");
+        p2.textContent=("Párrafo 2 con append");
+        document.getElementById("zona").append("Meto este texto antes de los párrafos porque si", p1, p2);
+    })
+  </script>
+</body>
+</html>

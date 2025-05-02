@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Comparación input vs change</title>
+  <style>
+    body { font-family: sans-serif; padding: 2em; }
+    input { display: block; margin-bottom: 1em; padding: 0.5em; width: 250px; }
+    .mensaje { font-size: 0.9em; margin-top: -0.5em; margin-bottom: 1em; }
+    .error { color: red; }
+    .ok { color: green; }
+  </style>
+</head>
+<body>
+
+  <h2>Comparación: Evento input vs Evento change + Validación al enviar</h2>
+
+  <form id="formulario">
+    <label>
+      Nombre (evento input):
+      <input type="text" id="nombreInput" placeholder="Escribe tu nombre...">
+      <div id="mensajeInput" class="mensaje"></div>
+    </label>
+
+    <label>
+      Apellido (evento change):
+      <input type="text" id="apellidoChange" placeholder="Escribe tu apellido...">
+      <div id="mensajeChange" class="mensaje"></div>
+    </label>
+
+    <input type="submit" value="Enviar" id="enviarChange">
+  </form>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const nombreInput = document.getElementById("nombreInput");
+      const mensajeInput = document.getElementById("mensajeInput");
+
+      const apellidoChange = document.getElementById("apellidoChange");
+      const mensajeChange = document.getElementById("mensajeChange");
+
+      const formulario = document.getElementById("formulario");
+
+      // Validación en tiempo real con input
+      nombreInput.addEventListener("input", () => {
+        if (nombreInput.value.length < 3) {
+          mensajeInput.textContent = " ❌ El nombre debe tener al menos 3 letras.";
+          mensajeInput.className = "mensaje error";
+        } else {
+          mensajeInput.textContent = "✅ Nombre válido.";
+          mensajeInput.className = "mensaje ok";
+        }
+      });
+
+      // Validación al salir del campo (change)
+      apellidoChange.addEventListener("change", () => {
+        if (apellidoChange.value.length < 3) {
+          mensajeChange.textContent = " ❌ El apellido debe tener al menos 3 letras.";
+          mensajeChange.className = "mensaje error";
+        } else {
+          mensajeChange.textContent = "✅ Apellido válido.";
+          mensajeChange.className = "mensaje ok";
+        }
+      });
+
+      // Validación final al hacer submit
+      formulario.addEventListener("submit", (e) => {
+        const nombreValido = nombreInput.value.length >= 3;
+        const apellidoValido = apellidoChange.value.length >= 3;
+
+        if (!nombreValido || !apellidoValido) {
+          e.preventDefault(); // Evita el envío si hay errores
+          if (!nombreValido) {
+            alert("Introduce un nombre correcto");
+          }
+          if (!apellidoValido) {
+            alert("Introduce un apellido correcto");
+          }
+        } else {
+          alert("✅ Formulario enviado correctamente");
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>
+

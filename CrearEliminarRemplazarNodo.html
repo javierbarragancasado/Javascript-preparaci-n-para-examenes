@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+    let parrafoNuevo = null;
+
+creaParrafo = () => {
+    parrafoNuevo = document.createElement("p");
+    let textoNuevo = document.createTextNode("Hola, soy un párrafo nuevo");
+    parrafoNuevo.appendChild(textoNuevo);
+    document.body.appendChild(parrafoNuevo);
+}
+
+eliminarParrafo = () => {
+    if (parrafoNuevo) {
+        document.body.removeChild(parrafoNuevo);
+        parrafoNuevo = null;
+    }
+}
+
+sustituirParrafo = () => {
+    if (parrafoNuevo) {
+        let nuevoParrafo = document.createElement("h2");
+        let textoNuevo = document.createTextNode("Soy un nuevo H2 sustituto");
+        nuevoParrafo.appendChild(textoNuevo);
+        document.body.replaceChild(nuevoParrafo, parrafoNuevo);
+        parrafoNuevo = nuevoParrafo; // Actualizamos la referencia
+    }
+}
+    </script>
+</head>
+<body>
+    <button onclick="creaParrafo()">Añade un párrafo</button>
+    <button onclick="eliminarParrafo()">Elimina el último párrafo</button>
+    <button onclick="sustituirParrafo()">Sustituye un párrafo</button>
+</body>
+</html>

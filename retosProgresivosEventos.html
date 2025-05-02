@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Retos progresivos</title>
+</head>
+<body>
+    <input type="button" value="TurboClick" id="turboClick">
+    <input type="text" name="" id="inputTexto" placeholder="Escribe algo...">
+    <p id="parrafoEspejo">El texto se reflejará aquí</p>
+    <br>
+    <select name="" id="menuDesplegable">
+
+        <option value="Ikkyo">Ikkyo</option>
+        <option value="Nikkyo">Nikkyo</option>
+        <option value="Sankyo">Sankyo</option>
+        <option value="Yonkyo">Yonkyo</option>
+        <option value="Gokyo">Gokyo</option>
+            
+    </select>
+    <p id="parrafoParaDesplegable">El texto se reflejará aquí</p>
+    <script>
+        document.addEventListener("DOMContentLoaded", ()=>{
+
+            const turboClick=document.getElementById("turboClick");
+            const inputTexto = document.getElementById("inputTexto");
+             const parrafo = document.getElementById("parrafoEspejo");
+            const menuDesplegable = document.getElementById("menuDesplegable");
+            parrafoParaDesplegable
+
+
+            //                                       Reto 1
+            turboClick.addEventListener("click",()=>{
+                let parrafo= document.createElement("p");
+                parrafo.textContent="Hola, soy un párrafo creado por el boton TurboClick";
+                
+                document.body.appendChild(parrafo);
+           
+               
+            }
+
+        );
+
+            //                                       Reto 2
+            inputTexto.addEventListener("input", () => {
+            parrafo.textContent = inputTexto.value;
+        });
+                
+            //                                       Reto 3
+            
+            menuDesplegable.addEventListener("change", () => {
+                parrafoParaDesplegable.textContent = menuDesplegable.value;
+            });
+                
+//                                      Reto 4
+          
+
+           
+        });
+        
+
+    
+    </script>
+</body>
+</html>

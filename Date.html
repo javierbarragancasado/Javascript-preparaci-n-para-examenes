@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        dameFecha=()=>{
+            let ahora = new Date();
+
+
+            console.log(ahora.getFullYear());  // 2025
+console.log(ahora.getMonth());     // 3 (si estamos en abril)
+console.log(ahora.getDate());      // 26
+console.log(ahora.getDay());       // 6 (sábado)
+console.log(ahora.getHours());     // 14
+console.log(ahora.getMinutes());   // 35
+console.log(ahora.toLocaleDateString()); // "26/04/2025"
+console.log(ahora.toLocaleTimeString()); // "14:35:22"
+        }
+    </script>
+</head>
+<body>
+    <button onclick="dameFecha()">Dame datos de la fecha</button>
+</body>
+</html>

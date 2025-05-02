@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 1. Crear un nuevo <p>
+let parrafo = document.createElement("p");
+
+// 2. Añadir contenido
+parrafo.textContent = "Soy un párrafo con atributos";
+
+// 3. Establecer ID
+parrafo.setAttribute("id", "parrafoEspecial");
+
+// 4. Añadir varias clases
+parrafo.setAttribute("class", "rojo grande");
+
+// 5. Tooltip (cuando pasas el ratón)
+parrafo.setAttribute("title", "Este texto aparece al pasar el ratón");
+
+// 6. Insertar en la página (dentro del body)
+document.body.appendChild(parrafo);
+
+console.log(parrafo.getAttribute("id"));      // "parrafoEspecial"
+console.log(parrafo.getAttribute("class"));   // "rojo grande"
+console.log(parrafo.getAttribute("title"));   // "Este texto aparece al pasar el ratón"
+//también se puede acceder a los atributos directamente como propiedades del objeto
+console.log(parrafo.id);         // "parrafoEspecial"
+console.log(parrafo.className);  // "rojo grande"
+
+// Cambiar el id
+parrafo.id = "nuevoID";
+
+// Cambiar las clases (sobrescribe todas)
+parrafo.className = "azul pequeño";
+
+// Cambiar el texto
+parrafo.textContent = "Ahora tengo otro contenido";
+
+    </script>
+</body>
+</html>

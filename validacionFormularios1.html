@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Validación de Formulario</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      padding: 2em;
+    }
+    .error {
+      color: red;
+      font-size: 0.9em;
+      margin: 0;
+    }
+    .valido {
+      border: 2px solid green;
+    }
+    .invalido {
+      border: 2px solid red;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Formulario de registro</h2>
+
+  <form id="formulario">
+    <label>Nombre:
+      <input type="text" id="nombre">
+      <p id="error-nombre" class="error"></p>
+    </label><br><br>
+
+    <label>Email:
+      <input type="email" id="email">
+      <p id="error-email" class="error"></p>
+    </label><br><br>
+
+    <label>Edad:
+      <input type="number" id="edad">
+      <p id="error-edad" class="error"></p>
+    </label><br><br>
+
+    <button type="submit">Enviar</button>
+  </form>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const form = document.getElementById("formulario");
+
+      const nombre = document.getElementById("nombre");
+      const email = document.getElementById("email");
+      const edad = document.getElementById("edad");
+
+      const errorNombre = document.getElementById("error-nombre");
+      const errorEmail = document.getElementById("error-email");
+      const errorEdad = document.getElementById("error-edad");
+
+      function validarNombre() {
+        const valor = nombre.value.trim();
+        if (valor.length < 3) {
+          errorNombre.textContent = "Debe tener al menos 3 letras.";
+          nombre.className = "invalido";
+          return false;
+        } else {
+          errorNombre.textContent = "";
+          nombre.className = "valido";
+          return true;
+        }
+      }
+
+      function validarEmail() {
+        const valor = email.value.trim();
+        const patron = /^[^@\s]+@[^@\s]+\.[^@\s]+$/;
+        if (!patron.test(valor)) {
+          errorEmail.textContent = "Introduce un email válido.";
+          email.className = "invalido";
+          return false;
+        } else {
+          errorEmail.textContent = "";
+          email.className = "valido";
+          return true;
+        }
+      }
+
+      function validarEdad() {
+        const valor = parseInt(edad.value);
+        if (isNaN(valor) || valor < 18 || valor > 99) {
+          errorEdad.textContent = "La edad debe estar entre 18 y 99.";
+          edad.className = "invalido";
+          return false;
+        } else {
+          errorEdad.textContent = "";
+          edad.className = "valido";
+          return true;
+        }
+      }
+
+      nombre.addEventListener("input", validarNombre);
+      email.addEventListener("input", validarEmail);
+      edad.addEventListener("input", validarEdad);
+
+      form.addEventListener("submit", (e) => {
+        let valido = validarNombre() & validarEmail() & validarEdad();
+        if (!valido) {
+          e.preventDefault(); // 🔒 Evita que se envíe el formulario
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>

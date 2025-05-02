@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Teclado en acción</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      padding: 2em;
+    }
+    #info {
+      margin-top: 1em;
+      padding: 1em;
+      background: #f0f0f0;
+      border-radius: 5px;
+      white-space: pre-line;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Escribe algo o prueba teclas especiales:</h2>
+  <input type="text" id="campoTexto" placeholder="Escribe aquí...">
+  <div id="info"></div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const input = document.getElementById("campoTexto");
+      const info = document.getElementById("info");
+
+      // Variables globales para mantener la última tecla y modificadores
+      let ultimaTecla = "(ninguna)";
+      let shift = "no";
+      let ctrl = "no";
+      let alt = "no";
+
+      // Captura la tecla cada vez que se pulsa una
+      input.addEventListener("keydown", (e) => {
+        ultimaTecla = e.key ?? "(sin tecla)";
+        shift = e.shiftKey ? "sí" : "no";
+        ctrl = e.ctrlKey ? "sí" : "no";
+        alt = e.altKey ? "sí" : "no";
+
+        // Mostramos inmediatamente por si no se genera input (ej: solo shift)
+        actualizarInfo(input.value);
+      });
+
+      // Captura el texto actualizado
+      input.addEventListener("input", () => {
+        actualizarInfo(input.value);
+      });
+
+      function actualizarInfo(textoActual) {
+        info.innerText = `Texto actual: ${textoActual}
+Tecla pulsada: ${ultimaTecla}
+Shift: ${shift} | Ctrl: ${ctrl} | Alt: ${alt}`;
+      }
+    });
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+
+        nuevoH2=()=>{
+            let nuevoH2=document.createElement("h2");
+            document.body.appendChild(nuevoH2);
+            let textoNuevo=document.createTextNode("Hola, un H2 nuevo");
+            nuevoH2.appendChild(textoNuevo);
+        }
+    </script>
+</head>
+<body>
+    <button onclick="nuevoH2()">Crear nuevo H2</button>
+</body>
+</html>

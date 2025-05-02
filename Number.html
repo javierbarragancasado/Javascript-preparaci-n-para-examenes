@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+
+        operaNumber=()=>{
+        let numero=10.167;
+        numeroCreado=document.createElement("h2");
+        document.body.appendChild(numeroCreado);
+        let numeroMostrado=document.createTextNode(`Hola, soy un numero y mi valor es ${numero} .`);
+        numeroCreado.appendChild(numeroMostrado);
+        let numeroRedondeado=document.createElement("h2");
+        document.body.appendChild(numeroRedondeado);
+        let textoRedond=document.createTextNode(`Hola de nuevo, mi valor redondeado es ${numero.toFixed(2)} `);
+        numeroRedondeado.appendChild(textoRedond);
+        let restoProp=document.createElement("h2");
+        document.body.appendChild(restoProp);
+        let textoProp=document.createTextNode(`Vamos con las últimas cosas: Te presento mi valor convertido a String ${numero.toString()} y si soy un entero o no : ${Number.isInteger(numero)}`);   
+        restoProp.appendChild(textoProp);
+        }
+
+
+    </script>
+</head>
+<body>
+    <button onclick="operaNumber()"> Información String </button>
+</body>
+</html>

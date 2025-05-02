@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Tablero de dibujo</title>
+  <link rel="stylesheet" href="estilos.css">
+  <style>
+    body {
+  font-family: sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+}
+
+#paleta {
+  margin-bottom: 10px;
+}
+
+.color {
+  width: 30px;
+  height: 30px;
+  display: inline-block;
+  margin: 5px;
+  border: 2px solid transparent;
+  cursor: pointer;
+}
+
+.color1 { background-color: red;
+        border:1px solid black; }
+.color2 { background-color: blue;
+    border:1px solid black; }
+.color3 { background-color: green;
+    border:1px solid black; }
+.color4 { background-color: orange;
+    border:1px solid black; }
+.color5 { background-color: white; 
+    border:1px solid black;}
+
+.seleccionado {
+  border: 2px solid black;
+}
+
+#zonadibujo {
+  width: 600px;
+  height: 600px;
+  border: 2px solid black;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.celda {
+  width: 20px;
+  height: 20px;
+  box-sizing: border-box;
+  border: 1px solid lightgray;
+}
+
+  </style>
+</head>
+<body>
+  <h2>Paleta de colores</h2>
+  <div id="paleta">
+    <div class="color color1"></div>
+    <div class="color color2"></div>
+    <div class="color color3"></div>
+    <div class="color color4"></div>
+    <div class="color color5"></div>
+  </div>
+
+  <p id="estadoPincel">PINCEL DESACTIVADO</p>
+
+  <div id="zonadibujo"></div>
+
+  <script >
+
+let colorActivo = "color1";
+let pincelActivo = false;
+
+// Selección de color
+const colores = document.querySelectorAll("#paleta .color");
+
+colores.forEach(color => {
+  color.addEventListener("click", function () {
+    colores.forEach(c => c.classList.remove("seleccionado"));
+    this.classList.add("seleccionado");
+    colorActivo = this.classList[1]; // Ej: "color3"
+  });
+});
+
+// Crear el tablero
+const zona = document.getElementById("zonadibujo");
+
+for (let i = 0; i < 30 * 30; i++) {
+  let celda = document.createElement("div");
+  celda.classList.add("celda");
+
+  // Activar/desactivar pincel
+  celda.addEventListener("click", function () {
+    pincelActivo = !pincelActivo;
+    document.getElementById("estadoPincel").textContent = pincelActivo
+      ? "PINCEL ACTIVADO"
+      : "PINCEL DESACTIVADO";
+  });
+
+  // Pintar si el pincel está activo
+  celda.addEventListener("mousemove", function () {
+    if (pincelActivo) {
+      this.className = "celda " + colorActivo;
+    }
+  });
+
+  zona.appendChild(celda);
+}
+
+  </script>
+</body>
+</html>
+
+

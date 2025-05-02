@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>p {
+        margin: 5px;
+        padding: 4px;
+        background-color: lightblue;
+        border: 1px solid #333;
+      }</style>
+</head>
+<body>
+    <h2>Insertar elementos en el DOM</h2>
+
+    <div id="zona">
+      <p id="referencia">Elemento original</p>
+    </div>
+    <script>
+        // Método 1: appendChild → mete al final del contenedor
+let p1 = document.createElement("p");
+p1.textContent = "Insertado con appendChild";
+document.getElementById("zona").appendChild(p1);
+
+// Método 2: append → también al final, pero puede incluir texto o varios elementos
+let p2 = document.createElement("p");
+p2.textContent = "Insertado con append";
+document.getElementById("zona").append(p2);
+
+// Método 3: prepend → al principio del contenedor
+let p3 = document.createElement("p");
+p3.textContent = "Insertado con prepend al principio del contenedor";
+document.getElementById("zona").prepend(p3);
+
+// Método 4: before → justo antes del párrafo de referencia
+let p4 = document.createElement("p");
+p4.textContent = "Insertado con before";
+document.getElementById("referencia").before(p4);
+
+// Método 5: after → justo después del párrafo de referencia
+let p5 = document.createElement("p");
+p5.textContent = "Insertado con after";
+document.getElementById("referencia").after(p5);
+
+// EXTRA: replaceWith → sustituye completamente el elemento de referencia
+let p6 = document.createElement("p");
+p6.textContent = "Reemplazado con replaceWith este era el original, la referencia";
+document.getElementById("referencia").replaceWith(p6);
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+
+        infoString=()=>{
+        let nombre="Javier";
+        nombreCreado=document.createElement("h2");
+        document.body.appendChild(nombreCreado);
+        let textoLength=document.createTextNode(`Hola, soy ${nombre} y mi nombre tiene ${nombre.length} letras`);
+        nombreCreado.appendChild(textoLength);
+        nombreMayus=document.createElement("h2");
+        document.body.appendChild(nombreMayus);
+        let textoMayus=document.createTextNode(`Hola de nuevo, aquí tienes mi nombre en mayúsculas ${nombre.toUpperCase()} `);
+        nombreMayus.appendChild(textoMayus);
+        let compruebaJ=document.createElement("h2");
+        document.body.appendChild(compruebaJ);
+        let textoJ=document.createTextNode(`Hola, quiero saber si mi nombre tiene J, y la respuesta es ${nombre.includes("J")}`);   
+        compruebaJ.appendChild(textoJ);
+        }
+
+
+    </script>
+</head>
+<body>
+    <button onclick="infoString()"> Información String </button>
+</body>
+</html>
