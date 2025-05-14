@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // ✅ Array de productos
+        const productos = [
+            { nombre: "Manzana", precio: 1.5 },
+            { nombre: "Pan", precio: 0.8 },
+            { nombre: "Leche", precio: 1.2 },
+            { nombre: "Café", precio: 3.5 },
+            { nombre: "Queso", precio: 2.5 },
+            { nombre: "Carne", precio: 5.0 },
+            { nombre: "Chocolate", precio: 2.0 }
+        ];
+
+        // ✅ Calculando el total del precio de todos los productos
+        let totalProductos = productos.reduce((TP, PA) => {
+            return TP + PA.precio;
+        }, 0);
+
+        // ✅ Encontrando el producto más caro
+        let productoMasCaro = productos.reduce((PMC, PA) => {
+            return (PA.precio > PMC.precio) ? PA : PMC;
+        }, { nombre: "", precio: 0 });
+
+        // ✅ Encontrando el producto más barato
+        let productoMasBarato = productos.reduce((PMC, PA) => {
+            return (PA.precio < PMC.precio) ? PA : PMC;
+        }, { nombre: "", precio: Infinity });
+
+        // ✅ Contando productos que cuestan más de 2€
+        let productosMayores2 = productos.reduce((contador, producto) => {
+            return (producto.precio > 2) ? contador + 1 : contador;
+        }, 0);
+
+        // ✅ Mostrando los resultados en el documento de forma clara
+        document.write("<h2>Informe de Productos</h2>");
+
+        // ✅ Mostrando el total de los productos
+        document.write("<p><strong>Total del precio de todos los productos:</strong> " + totalProductos.toFixed(2) + "€</p>");
+
+        // ✅ Mostrando el producto más caro
+        document.write("<p><strong>Producto más caro:</strong> " + productoMasCaro.nombre + " - " + productoMasCaro.precio.toFixed(2) + "€</p>");
+
+        // ✅ Mostrando el producto más barato
+        document.write("<p><strong>Producto más barato:</strong> " + productoMasBarato.nombre + " - " + productoMasBarato.precio.toFixed(2) + "€</p>");
+
+        // ✅ Mostrando la cantidad de productos que cuestan más de 2€
+        document.write("<p><strong>Número de productos que cuestan más de 2€:</strong> " + productosMayores2 + "</p>");
+
+        // ✅ Listando los productos que cuestan más de 2€ (opcional)
+        document.write("<h3>Lista de Productos que Cuestan más de 2€:</h3>");
+        productos.forEach(producto => {
+            if (producto.precio > 2) {
+                document.write("<p>" + producto.nombre + " - " + producto.precio.toFixed(2) + "€</p>");
+            }
+        });
+
+    </script>
+</body>
+</html>
