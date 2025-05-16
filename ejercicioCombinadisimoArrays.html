@@ -21,6 +21,14 @@
     { nombre: "Té", precio: 2.2, categoria: "Bebidas" }
 ];
 
+const nuevosProductos = [
+    { nombre: "Tarta de Queso", precio: 3.0, categoria: "Postres" },
+    { nombre: "Jugo de Naranja", precio: 1.5, categoria: "Bebidas" },
+    { nombre: "Cereales", precio: 2.2, categoria: "Desayunos" },
+    { nombre: "Helado de Vainilla", precio: 2.8, categoria: "Postres" },
+    { nombre: "Galletas de Chocolate", precio: 1.8, categoria: "Dulces" }
+];
+
 productos.forEach(producto =>{
     document.write(`Nombre del producto es :  <strong>${producto.nombre}</strong>   y su precio es :  <strong>${producto.precio}<strong> <br><br>`);
 });
@@ -64,6 +72,49 @@ if(arrayEvery){
 }else{
     document.write(`Me temo que al menos uno de los productos tiene un precio de 0€ o inferior, lo cual es un error que hay que subsanar`);
 }
+document.write("<br><br>");
+let arraySorteado=productos.sort((a,b)=>a.precio-b.precio);
+
+document.write(`<br><br> AQUÍ SE MUESTRA EL ARRAY CON LOS PRECIOS ORDENADOS`);
+arraySorteado.forEach(productos=>{
+    document.write(`<br><br>Nombre del producto: ${productos.nombre} y su precio es : ${productos.precio}`);
+});
+
+document.write("<br><br>");
+nuevoArrayConcatenado=productos.concat(nuevosProductos);
+nuevoArrayConcatenado.forEach(nuevoArray=>{
+    document.write(`<br><br>${nuevoArray.nombre} ${nuevoArray.precio} ${nuevoArray.categoria}`);
+});
+document.write("<br><br>");
+
+const NACordenado=nuevoArrayConcatenado.sort((a,b)=>a.categoria.localeCompare(b.categoria,'es'));
+NACordenado.forEach(arrayOrdenado=>{
+    document.write(`<br><br>La categoría del producto es: ${arrayOrdenado.categoria}, su nombre es : ${arrayOrdenado.nombre} y su precio es ${arrayOrdenado.precio} `);
+});
+
+document.write("<br><br>");
+
+const arraySlice=productos.filter(productos=>productos.categoria==='Dulces').slice();
+document.write('Lista de productos que pertenecen a la categoría DULCES');
+arraySlice.forEach(productos=>{
+
+    document.write(`<br><br>Nombre : ${productos.nombre} || Precio: ${productos.precio} || Categoría: Obviamente ${productos.categoria}`);
+});
+
+const indiceLeche=productos.findIndex(productos=>productos.nombre==='Leche');
+// ✅ Si existe, lo reemplazamos por 'Yogurt'
+if (indiceLeche !== -1) {
+    productos.splice(indiceLeche, 1, { nombre: "Yogurt", precio: 1.2, categoria: "Lácteos" });
+}
+
+document.write("<h3>Productos después de reemplazar 'Leche' por 'Yogurt':</h3>");
+productos.forEach(producto => {
+    document.write(`<p>${producto.nombre} - ${producto.precio}€</p>`);
+});
+
+
+
+
 /*✅ 🚀 Objetivos del Ejercicio:
 
     Recorrer todos los productos y mostrar su nombre y precio (forEach).✅
@@ -78,15 +129,34 @@ if(arrayEvery){
 
     Verificar si hay algún producto que cuesta menos de 1€ (some).✅
 
-    Verificar si todos los productos cuestan más de 0€ (every).
+    Verificar si todos los productos cuestan más de 0€ (every).✅
 
-    Ordenar los productos de menor a mayor precio (sort).
 
-    Combinar los productos actuales con un nuevo array de productos (concat).
+    Ordenar los productos de menor a mayor precio (sort).✅
 
-    Extraer solo los productos de la categoría 'Dulces' (slice).
+    Combinar los productos actuales con un nuevo array de productos (concat).✅
 
-    Eliminar el producto 'Leche' y reemplazarlo por 'Yogurt' (splice).*/
+    Extraer solo los productos de la categoría 'Dulces' (slice).✅
+
+    Eliminar el producto 'Leche' y reemplazarlo por 'Yogurt' (splice).✅
+    
+    push() - Añadir elementos al final del array.
+
+    pop() - Eliminar el último elemento.
+
+    unshift() - Añadir elementos al inicio.
+
+    shift() - Eliminar el primer elemento.
+
+    delete - Eliminar un elemento dejando undefined.
+
+    reverse() - Invertir el array.
+
+    join() - Convertir el array en una cadena de texto.
+
+    toString() - Convertir el array a texto (similar a join).
+
+    findIndex() - Buscar la posición de un elemento.*/
     </script>
 </body>
 </html>
