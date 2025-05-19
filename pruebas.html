@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Alerta Personalizada</title>
+    <style>
+        #alerta {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: #f4f4f4;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+            text-align: center;
+            width: 300px;
+        }
+
+        #alerta button {
+            margin-top: 10px;
+            background: #007bff;
+            color: #fff;
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        #alerta button:hover {
+            background: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+<button onclick="mostrarAlerta()">Mostrar Alerta</button>
+
+<div id="alerta">
+    <p>¡Esto es una alerta personalizada!</p>
+    <button onclick="cerrarAlerta()">Aceptar</button>
+</div>
+
+<script>
+    function mostrarAlerta() {
+        document.getElementById('alerta').style.display = 'block';
+    }
+
+    function cerrarAlerta() {
+        document.getElementById('alerta').style.display = 'none';
+    }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eventos 2</title>
+    <script>
+        let campoTexto=document.getElementById("campoTexto");
+        let parrafo=document.getElementById("parrafo");
+        let contenidoParrafo=campoTexto.textContent
+        campoTexto.addEventListener("keydown",(e)=>{
+         let teclapulsada=e.key;
+         contenidoParrafo+=teclapulsada;   
+        });
+
+    </script>
+</head>
+<body>
+    <p id="parrafo"></p>
+    <input type="text" name="" id="campoTexto" placeholder="Introduce un texto"><br>
+</body>
+</html>

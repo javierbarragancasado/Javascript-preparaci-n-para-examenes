@@ -73,7 +73,7 @@ if(arrayEvery){
     document.write(`Me temo que al menos uno de los productos tiene un precio de 0€ o inferior, lo cual es un error que hay que subsanar`);
 }
 document.write("<br><br>");
-let arraySorteado=productos.sort((a,b)=>a.precio-b.precio);
+const arraySorteado=productos.sort((a,b)=>a.precio-b.precio);
 
 document.write(`<br><br> AQUÍ SE MUESTRA EL ARRAY CON LOS PRECIOS ORDENADOS`);
 arraySorteado.forEach(productos=>{
@@ -157,6 +157,8 @@ productos.forEach(producto => {
     toString() - Convertir el array a texto (similar a join).
 
     findIndex() - Buscar la posición de un elemento.*/
+
+    
     </script>
 </body>
 </html>

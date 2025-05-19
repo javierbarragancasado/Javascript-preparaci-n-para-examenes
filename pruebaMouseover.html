@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Tabla Dinámica Interactiva</title>
+    <meta charset="UTF-8">
+    <style>
+        table {
+            border-collapse: collapse;
+            margin: 20px;
+        }
+
+        th, td {
+            width: 80px;
+            height: 80px;
+            text-align: center;
+            border: 2px solid #000;
+            transition: all 0.3s ease;
+        }
+
+        th, td:hover {
+            transform: scale(1.2);
+        }
+    </style>
+</head>
+
+<body>
+
+    <h2>Tabla Dinámica Interactiva (JavaScript Moderno)</h2>
+    <div id="tablaContainer"></div>
+    <button onclick="generarTabla()">Generar Tabla</button>
+
+    <script>
+        // Función para generar la tabla
+        function generarTabla() {
+            const filas = parseInt(prompt("¿Cuántas filas quieres?"));
+            const columnas = parseInt(prompt("¿Cuántas columnas quieres?"));
+            
+            // Verificamos que sean valores válidos
+            if (isNaN(filas) || isNaN(columnas) || filas <= 0 || columnas <= 0) {
+                alert("Por favor, introduce valores válidos (números positivos).");
+                return;
+            }
+
+            const tablaContainer = document.getElementById("tablaContainer");
+            tablaContainer.innerHTML = ""; // Limpiar cualquier tabla existente
+
+            const tabla = document.createElement("table");
+
+            for (let i = 0; i < filas; i++) {
+                const fila = document.createElement("tr");
+
+                for (let j = 0; j < columnas; j++) {
+                    const celda = document.createElement("td");
+                    celda.textContent = `(${i + 1}, ${j + 1})`;
+
+                    // Añadimos eventos con JavaScript moderno
+                    celda.addEventListener("mouseover", () => {
+                        celda.style.backgroundColor = generarColorAleatorio();
+                    });
+
+                    celda.addEventListener("mouseout", () => {
+                        celda.style.backgroundColor = "#000";
+                        celda.style.color = "#fff";
+                    });
+
+                    fila.appendChild(celda);
+                }
+                tabla.appendChild(fila);
+            }
+
+            tablaContainer.appendChild(tabla);
+        }
+
+        // Función para generar un color aleatorio
+        function generarColorAleatorio() {
+            const letras = "0123456789ABCDEF";
+            let color = "#";
+            for (let i = 0; i < 6; i++) {
+                color += letras[Math.floor(Math.random() * 16)];
+            }
+            return color;
+        }
+    </script>
+
+</body>
+
+</html>
