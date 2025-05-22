@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // Inicializamos el contador de productos
+    let contadorProductos = 0;
+
+    // Hacemos una petición HTTP para cargar el archivo productos.json
+    fetch("productos.json")
+      // Convertimos la respuesta a un objeto JavaScript con .json()
+      .then(resultados => resultados.json())
+
+      // Ya tenemos los datos convertidos, ahora los usamos
+      .then(datos => {
+        // Accedemos a la propiedad 'products' del objeto JSON.
+        // Esto es necesario porque tu JSON tiene esta forma:
+        // { "products": [ {producto: ..., precio: ...}, {...} ] }
+        const todosDatos = datos.products;
+
+        // Recorremos cada producto individual del array 'todosDatos'
+        todosDatos.forEach(productos => {
+          // Creamos un nuevo párrafo HTML para mostrar los datos del producto
+          let parrafo = document.createElement("p");
+
+          // Rellenamos ese párrafo con el nombre y precio del producto
+          parrafo.textContent = `Nombre del producto: ${productos.producto} Precio del producto: ${productos.precio}`;
+
+          // Lo añadimos al <body> para que se vea en pantalla
+          document.body.appendChild(parrafo);
+
+          // Aumentamos el contador de productos
+          contadorProductos++;
+        });
+
+        // Ahora usamos reduce() para sumar todos los precios de los productos
+        // total es el acumulador, y precio es cada objeto producto
+        let preciototal = todosDatos.reduce((total, precio) => {
+          return total + precio.precio; // Sumamos el precio de cada producto
+        }, 0); // Empezamos desde 0
+
+        // Creamos otro párrafo para mostrar el resumen final (precio total y número de productos)
+        let parrafoTotalPrecio = document.createElement("p");
+        parrafoTotalPrecio.textContent =
+          `El precio TOTAL de todos los productos es: ${preciototal} y el número total de productos es: ${contadorProductos}`;
+
+        // Lo añadimos al <body> también
+        document.body.appendChild(parrafoTotalPrecio);
+      })
+
+      // Si ocurre un error (por ejemplo, el archivo no existe), lo mostramos en consola
+      .catch(error => {
+        console.error("Error al cargar los datos", error);
+      });
+  </script>
+</body>
+</html>
