@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Tabla de productos</title>
+</head>
+<body>
+  <script>
+    let contador = 0;
+
+    fetch("productos.json")
+      .then(resultado => resultado.json())
+      .then(datos => {
+        let todosProductos = datos.products;
+
+        // Crear la tabla y sus estilos
+        let tabla = document.createElement("table");
+        tabla.style.borderCollapse = "collapse";
+        tabla.style.marginBottom = "20px";
+
+        // Crear la fila de encabezado
+        let encabezado = document.createElement("tr");
+
+        let th1 = document.createElement("th");
+        th1.textContent = "Nombre del producto";
+        th1.style.border = "1px solid black";
+        th1.style.padding = "8px";
+
+        let th2 = document.createElement("th");
+        th2.textContent = "Peso (kg)";
+        th2.style.border = "1px solid black";
+        th2.style.padding = "8px";
+
+        encabezado.appendChild(th1);
+        encabezado.appendChild(th2);
+        tabla.appendChild(encabezado);
+
+        // Recorrer productos y añadir filas con datos
+        todosProductos.forEach(producto => {
+          let fila = document.createElement("tr");
+
+          let celdaNombre = document.createElement("td");
+          celdaNombre.textContent = producto.producto;
+          celdaNombre.style.border = "1px solid black";
+          celdaNombre.style.padding = "8px";
+
+          let celdaPeso = document.createElement("td");
+          celdaPeso.textContent = producto.pesoKg;
+          celdaPeso.style.border = "1px solid black";
+          celdaPeso.style.padding = "8px";
+
+          fila.appendChild(celdaNombre);
+          fila.appendChild(celdaPeso);
+          tabla.appendChild(fila);
+
+          contador++;
+        });
+
+        // Calcular peso total
+        let pesoKgTotal = todosProductos.reduce((total, producto) => {
+          return total + producto.pesoKg;
+        }, 0);
+
+        // Crear resumen final
+        let parrafoKGTOTAL = document.createElement("p");
+        parrafoKGTOTAL.textContent = `El valor en kilos de todos los productos es: ${pesoKgTotal.toFixed(2)} kg y el número total de productos es: ${contador}`;
+
+        // Insertar todo en el body
+        document.body.appendChild(tabla);
+        document.body.appendChild(parrafoKGTOTAL);
+      })
+      .catch(error => {
+        console.error("Hay un error en la carga de datos.", error);
+      });
+  </script>
+</body>
+</html>
