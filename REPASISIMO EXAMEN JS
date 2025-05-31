@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Resumen Personas</title>
+</head>
+<body>
+  <h1>📊 Resumen desde JSON</h1>
+  <div id="resultados"></div>
+
+  <script>
+    fetch("people.json")
+      .then(res => res.json()) // Convertimos la respuesta a JSON
+      .then(data => {
+        const gente = data.people;
+
+        const resultados = document.getElementById("resultados");
+
+        // ✅ 1. Solteros y Casados
+        const solteros = gente.filter(p => !p.casado);
+        const casados  = gente.filter(p => p.casado);
+
+        // ✅ 2. Persona mayor y menor (reduce)
+        const mayor = gente.reduce((max, p) => p.edad > max.edad ? p : max);
+        const menor = gente.reduce((min, p) => p.edad < min.edad ? p : min);
+
+        // ✅ 3. Edad máxima y mínima (Math.max + filter)
+        const edades = gente.map(p => p.edad);
+        const edadMaxima = Math.max(...edades);
+        const edadMinima = Math.min(...edades);
+
+        const personasMax = gente.filter(p => p.edad === edadMaxima);
+        const personasMin = gente.filter(p => p.edad === edadMinima);
+
+        // ✅ 4. Mensajes que vamos a mostrar
+        const mensajes = [
+          `🧍‍♂️ El número de solteros es ${solteros.length}`,
+          `💍 El número de casados es ${casados.length}`,
+          `🧑‍🎓 Los nombres de los solteros son: ${solteros.map(p => p.nombre).join(", ")}`,
+          `👴 La persona de mayor edad (reduce) es ${mayor.nombre}, con ${mayor.edad} años`,
+          `🧒 La persona de menor edad (reduce) es ${menor.nombre}, con ${menor.edad} años`,
+          `🔺 Edad máxima: ${edadMaxima}. Personas con esa edad: ${personasMax.map(p => p.nombre).join(", ")}`,
+          `🔻 Edad mínima: ${edadMinima}. Personas con esa edad: ${personasMin.map(p => p.nombre).join(", ")}`
+        ];
+
+        // ✅ 5. Mostrar en la página
+        mensajes.forEach(texto => {
+          const p = document.createElement("p");
+          p.textContent = texto;
+          resultados.appendChild(p);
+        });
+      });
+  </script>
+</body>
+</html>
